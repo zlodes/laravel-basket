@@ -95,4 +95,17 @@ class LaravelBasket {
 	public function update() {
 		$this->storage->updateStorage();
 	}
+
+	public function removeDiscount() {
+		$this->discount = null;
+	}
+
+	/**
+	 * Remove all items from basket and remove discount
+	 */
+	public function clear() {
+		$this->items = new Collection();
+
+		$this->removeDiscount();
+	}
 }

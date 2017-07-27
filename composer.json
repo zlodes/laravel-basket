@@ -1,0 +1,45 @@
+{
+	"name": "zlodes/laravel-basket",
+	"description": "ShoppingCart package for Laravel 5.4",
+	"type": "library",
+	"autoload": {
+		"psr-4": {
+			"Zlodes\\LaravelBasket\\": "src/"
+
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"require": {
+		"php": ">=5.4.0",
+		"laravel/framework": "^5.4.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^6.2"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "ZLatoslav Desyatnikov",
+			"email": "px.zlodes@gmail.com"
+		}
+	],
+	"config": {
+		"sort-packages": true
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Zlodes\\LaravelBasket\\BasketServiceProvider"
+			],
+			"aliases": {
+				"Basket": "Zlodes\\LaravelBasket\\Facades\\Basket"
+			}
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

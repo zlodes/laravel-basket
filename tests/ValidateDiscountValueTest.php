@@ -45,25 +45,19 @@ class ValidateDiscountValueTest extends TestCase {
 	 * @expectedException WrongDiscountValueException
 	 */
 	public function testSetInvalidPercentValueMoreThen100() {
-		$basket = new LaravelBasket([]);
-
 		$this->expectException(WrongDiscountValueException::class);
-		new PercentDiscount($basket, 120);
+		new PercentDiscount(120);
 	}
 
 	public function testSetInvalidPercentValueLessThen0() {
-		$basket = new LaravelBasket([]);
-
 		$this->expectException(WrongDiscountValueException::class);
-		new PercentDiscount($basket, -20);
+		new PercentDiscount(-20);
 	}
 
 
 	public function testSetInvalidFeeValueLessThen0() {
-		$basket = new LaravelBasket([]);
-
 		$this->expectException(WrongDiscountValueException::class);
-		new FeeDiscount($basket, -10);
+		new FeeDiscount(-10);
 	}
 
 	public function testAddFeeDiscountMoreThenSumOfBasketItems() {
@@ -76,7 +70,7 @@ class ValidateDiscountValueTest extends TestCase {
 		$basket->addItem($product1, 2);
 		$basket->addItem($product2, 1);
 
-		$basket->setDiscount(new FeeDiscount($basket, 5000));
+		$basket->setDiscount(new FeeDiscount(5000));
 
 		$this->expectException(WrongDiscountValueException::class);
 		$basket->getTotalSum();

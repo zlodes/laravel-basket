@@ -28,6 +28,13 @@ class BasketItem {
 	 */
 	private $quantity;
 
+
+	public function __construct(LaravelBasket $basket, ProductContract $product, float $quantity) {
+		$this->basket = $basket;
+		$this->product = $product;
+		$this->quantity = $quantity;
+	}
+
 	public function getProduct(): ProductContract {
 		return $this->product;
 	}
@@ -46,9 +53,7 @@ class BasketItem {
 		return $this->id;
 	}
 
-	public function __construct(LaravelBasket $basket, ProductContract $product, float $quantity) {
-		$this->basket = $basket;
-		$this->product = $product;
-		$this->quantity = $quantity;
+	public function getTotalPrice(): float {
+		return $this->getProduct()->getPrice() * $this->getQuantity();
 	}
 }

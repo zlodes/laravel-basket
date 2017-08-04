@@ -62,7 +62,7 @@ class BasketItemsTotalPriceTest extends TestCase {
 		$basket->addItem($product1, 2);
 		$basket->addItem($product2, 1);
 
-		$discount = new PercentDiscount($basket, 50);
+		$discount = new PercentDiscount(50);
 
 		$basket->setDiscount($discount);
 
@@ -80,7 +80,7 @@ class BasketItemsTotalPriceTest extends TestCase {
 		$basket->addItem($product1, 2);
 		$basket->addItem($product2, 1);
 
-		$discount = new FeeDiscount($basket, 100);
+		$discount = new FeeDiscount(100);
 
 		$basket->setDiscount($discount);
 

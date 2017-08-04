@@ -3,7 +3,6 @@
 namespace Zlodes\LaravelBasket\DiscountTypes;
 
 use Zlodes\LaravelBasket\Contracts\DiscountContract;
-use Zlodes\LaravelBasket\LaravelBasket;
 use Zlodes\LaravelBasket\WrongDiscountValueException;
 
 abstract class AbstractDiscountType implements DiscountContract {
@@ -16,26 +15,11 @@ abstract class AbstractDiscountType implements DiscountContract {
 	private $id;
 
 	/**
-	 * @var LaravelBasket
-	 */
-	protected $basket;
-
-	/**
 	 * @var float
 	 */
 	protected $value;
 
-
-	/**
-	 * AbstractDiscountType constructor.
-	 *
-	 * @todo: DO NOT PASS BASKET TO DISCOUNT CONSTRUCTOR
-	 *
-	 * @param LaravelBasket $basket
-	 * @param float $value
-	 */
-	public function __construct(LaravelBasket $basket, float $value) {
-		$this->basket = $basket;
+	public function __construct(float $value) {
 		$this->value = $value;
 
 		if ( ! $this->validateValue($value)) {

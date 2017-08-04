@@ -71,7 +71,7 @@ class LaravelBasket {
 	public function getTotalSum(): float {
 		return is_null($this->discount)
 			? $this->getOriginalProductsSum()
-			: $this->discount->calculateBasketTotalSum();
+			: $this->discount->calculateBasketTotalSum($this->items);
 	}
 
 	public function getOriginalProductsSum(): float {

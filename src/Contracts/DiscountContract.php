@@ -2,18 +2,18 @@
 
 namespace Zlodes\LaravelBasket\Contracts;
 
-use Zlodes\LaravelBasket\LaravelBasket;
+use Illuminate\Support\Collection;
 
 interface DiscountContract {
 
 	const DISCOUNT_TYPE_PERCENT = 'percent';
 	const DISCOUNT_TYPE_FEE = 'fee';
 
-	public function __construct(LaravelBasket $basket, float $value);
+	public function __construct(float $value);
 
 	public function getDiscountType(): string;
 
-	public function calculateBasketTotalSum(): float;
+	public function calculateBasketTotalSum(Collection $basketItems): float;
 
 	public function validateValue(float $value): bool;
 
